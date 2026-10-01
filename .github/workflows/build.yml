@@ -1,0 +1,21 @@
+name: build-ics
+on:
+  schedule:
+    - cron: '0 0 * * 0'   # Sunday 00:00Z weekly rebuild
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refetch schedules (keep-old-on-failure, logged)
+        continue-on-error: true
+        run: python3 scripts/fetch_schedules.py
+      - run: python3 scripts/build_ics.py
+      - run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add econ.ics data
+          git diff --cached --quiet && echo "no change" || { git commit -m "weekly rebuild $(date -u +%F)"; git pull --rebase origin main; git push; }

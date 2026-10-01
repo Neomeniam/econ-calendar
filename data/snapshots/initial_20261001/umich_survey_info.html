@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <title>Surveys of Consumers - Survey Information</title>
+        <link href="/application.css" rel="stylesheet" type="text/css"/>
+    <link href="/jquery.qtip.min.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/application.js" type="text/javascript"></script>
+    <script src="/jquery.corner.js" type="text/javascript"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+        $().ready(function () {
+            $('.account_control').corner("8px");
+            $('.current_folder').corner("4px");
+        });
+    </script>
+    <script type='text/javascript'>
+        $(window).load(function () {
+            $(document).ready(function () {
+
+                // Position chart menu
+                var chart_menu_head = $('#chart_menu_head');
+                var chart_top = chart_menu_head.offset().top + chart_menu_head.height() + "px";
+                var chart_left = chart_menu_head.offset().left + "px";
+
+                $('#chartmenu').css({
+                    'position': 'absolute',
+                    'top': chart_top,
+                    'left': chart_left
+                });
+
+                // Position table menu
+                var table_menu_head = $('#table_menu_head');
+                var table_top = table_menu_head.offset().top + chart_menu_head.height() + "px";
+                var table_left = table_menu_head.offset().left + "px";
+
+                $('#tablemenu').css({
+                    'position': 'absolute',
+                    'top': table_top,
+                    'left': table_left
+                });
+
+                // Position data menu
+                var data_menu_head = $('#data_menu_head');
+                var data_top = data_menu_head.offset().top + data_menu_head.height() + "px";
+                var data_left = data_menu_head.offset().left + "px";
+
+                $('#datamenu').css({
+                    'position': 'absolute',
+                    'top': data_top,
+                    'left': data_left
+                });
+
+                // Position SI menu
+                var si_menu_head = $('#si_menu_head');
+                var si_top = si_menu_head.offset().top + si_menu_head.height() + "px";
+                var si_left = si_menu_head.offset().left + "px";
+
+                $('#si_menu').css({
+                    'position': 'absolute',
+                    'top': si_top,
+                    'left': si_left
+                });
+
+                // Handle clicks outside the menus
+                $("body").click(function() {
+                    $("#chartmenu").slideUp('fast');
+                    $("#tablemenu").slideUp('fast');
+                    $("#datamenu").slideUp('fast');
+                    $("#si_menu").slideUp('fast');
+                });
+
+                // Show chart menu
+                chart_menu_head.click(function (e) {
+                    $("#chartmenu").slideDown('fast');
+                    $("#tablemenu").slideUp('fast');
+                    $("#datamenu").slideUp('fast');
+                    $("#si_menu").slideUp('fast');
+                    e.stopPropagation();
+                });
+
+                // Show table menu
+                table_menu_head.click(function (e) {
+                    $("#tablemenu").slideDown('fast');
+                    $('#chartmenu').slideUp('fast');
+                    $('#datamenu').slideUp('fast');
+                    $("#si_menu").slideUp('fast');
+                    e.stopPropagation();
+                });
+
+                // Show data menu
+                data_menu_head.click(function (e) {
+                    $("#datamenu").slideDown('fast');
+                    $('#tablemenu').slideUp('fast');
+                    $('#chartmenu').slideUp('fast');
+                    $("#si_menu").slideUp('fast');
+                    e.stopPropagation();
+                });
+
+                // Show data menu
+                si_menu_head.click(function (e) {
+                    $("#si_menu").slideDown('fast');
+                    $('#tablemenu').slideUp('fast');
+                    $('#chartmenu').slideUp('fast');
+                    $('#datamenu').slideUp('fast');
+                    e.stopPropagation();
+                });
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TFGLRT"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TFGLRT');</script>
+<!-- End Google Tag Manager -->
+<div id='header'>
+    <div class='container_12'>
+        <div class='grid_8'>
+            <a href="/"><img alt="Logo" src="/images/logo-yellow.png" border="0"/></a>
+        </div>
+        <div class='grid_4 login'>
+          <span class="account_control">
+                                                <a href="/sponsor-login.php" class="loginlink">Log In</a>
+                                      </span>
+
+        </div>
+        <div class='clear'></div>
+    </div>
+</div>
+<div id='navigation'>
+    <div class='container_12'>
+        <div class='grid_12'>
+            <ul>
+                <li  >
+                    <a href="/">Home</a>
+                </li>
+                <li >
+                    <a href="/reports.php">Reports</a>
+                </li>
+                <li id="table_menu_head" >
+                    <a href="#">Tables</a>
+                </li>
+                <li id="chart_menu_head" >
+                    <a href="#">Charts</a>
+                </li>
+                <li id="data_menu_head" >
+                    <a href="#">Data</a>
+                </li>
+                <li id="si_menu_head" class="active">
+                    <a href="#">Survey Information</a>
+                </li>
+                <li >
+                    <a href="/papers.php">Papers</a>
+                </li>
+                                <li >
+                    <a href="/contact.php">Contact</a>
+                </li>
+                <li>
+                    <a href="http://www.sca.isr.umich.edu">Main Site</a>
+                </li>
+            </ul>
+        </div>
+        <div class='clear'></div>
+    </div>
+</div>
+<div id="submenu">
+
+    <div id="chartmenu">
+        <ul>
+            <li>
+                <a href="/charts.php">All Households</a>
+            </li>
+            <li>
+                <a href="/charts.php?demographic=age">by Age</a>
+            </li>
+            <li>
+                <a href="/charts.php?demographic=income">by Income</a>
+            </li>
+            <li>
+                <a href="/charts.php?demographic=education">by Education</a>
+            </li>
+            <li>
+                <a href="/charts.php?demographic=region">by Region</a>
+            </li>
+            <li>
+                <a href="/charts.php?demographic=gender">by Gender</a>
+            </li>
+            <li>
+                <a href = "/featured-charts.php">Featured Charts</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="tablemenu">
+        <ul>
+            <li>
+                <a href="/tables.php">All Households</a>
+            </li>
+            <li>
+                <a href="/demographic-tables.php?demographic=age">by Age</a>
+            </li>
+            <li>
+                <a href="/demographic-tables.php?demographic=income">by Income</a>
+            </li>
+            <li>
+                <a href="/demographic-tables.php?demographic=education">by Education</a>
+            </li>
+            <li>
+                <a href="/demographic-tables.php?demographic=region">by Region</a>
+            </li>
+            <li>
+                <a href="/demographic-tables.php?demographic=gender">by Gender</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="datamenu">
+        <ul>
+            <li>
+                <a href="/data-archive/mine.php">Time Series</a>
+            </li>
+            <li>
+                <a href="/subset/subset.php">Time Series Demographics</a>
+            </li>
+            <li>
+                <a href="/sda.php">Cross-Section Archive</a>
+            </li>
+                    </ul>
+    </div>
+
+    <div id="si_menu">
+        <ul>
+            <li>
+                <a href="/survey-info.php">Survey Information</a>
+            </li>
+                            <li>
+                    <a href="/technical-docs.php">Technical Documentation</a>
+                </li>
+                        <li>
+                <a href="/faq.php">Frequently Asked Questions</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div id='content'>
+
+<div id="reports" class='container_12'>
+  <div id="report_heading" class="grid_12">
+    <div class="title">
+      Survey Information
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <div class="grid_3 date"></div>
+  <div class="grid_9"><a href="faq.php">Frequently Asked Questions</a></div>
+  <div class="clear"></div>
+
+  <div class="grid_9"><a href="technical-docs.php">Technical Documentation</a></div>
+  <div class="clear"></div>
+
+  <div class="grid_9"><a href="survey-description.php">Survey Description</a></div>
+  <div class="clear"></div>
+
+      <div class="grid_3 date">
+          </div>
+    <div class="grid_9"><a data-doctype="surveyinfo" data-docname="Index Calculation"href="fetchdoc.php?docid=24770">Index Calculation</a></div>
+    <div class="clear"></div>
+        <div class="grid_3 date">
+          </div>
+    <div class="grid_9"><a data-doctype="surveyinfo" data-docname="2026 Release Dates"href="fetchdoc.php?docid=79628">2026 Release Dates</a></div>
+    <div class="clear"></div>
+        <div class="grid_3 date">
+          </div>
+    <div class="grid_9"><a data-doctype="surveyinfo" data-docname="2027 Release Dates"href="fetchdoc.php?docid=81621">2027 Release Dates</a></div>
+    <div class="clear"></div>
+        <div class="grid_3 date">
+          </div>
+    <div class="grid_9"><a data-doctype="surveyinfo" data-docname="2026 Interview Dates"href="fetchdoc.php?docid=79629">2026 Interview Dates</a></div>
+    <div class="clear"></div>
+        <div class="grid_3 date">
+          </div>
+    <div class="grid_9"><a data-doctype="surveyinfo" data-docname="2027 Interview Dates"href="fetchdoc.php?docid=81622">2027 Interview Dates</a></div>
+    <div class="clear"></div>
+        <div class="grid_3 date">
+          </div>
+    <div class="grid_9"><a data-doctype="surveyinfo" data-docname="Web Questionnaire"href="fetchdoc.php?docid=75445">Web Questionnaire</a></div>
+    <div class="clear"></div>
+        <div class="grid_3 date">
+          </div>
+    <div class="grid_9"><a data-doctype="surveyinfo" data-docname="Phone Questionnaire"href="fetchdoc.php?docid=24776">Phone Questionnaire</a></div>
+    <div class="clear"></div>
+      <div class='clear'></div>
+</div>
+    </div>
+    <div id='footer'>
+      <div class='container_12'>
+        <div class='grid_10'>
+          <img src="/images/footer-logos.png"/><br/>
+          Copyright &copy; 2026, The Regents of the University of Michigan.  All Rights Reserved.
+          <a href="/agreement.php">Usage agreement.</a>
+					<br/>
+        </div>
+        <div class="grid_2 rightalign">
+          8:46:34 am        <div class='clear'></div>
+        <br/>
+      </div>
+    </div>
+  </body>
+  <script src="/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+  <script src="/jquery.qtip.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $('.loginlink').qtip({
+      style: { classes: 'ui-tooltip-tipsy' },
+      content: "Sponsors: log in here",
+      position: {
+         at: 'bottom center',
+         my: 'top right'
+      },
+      show: {
+      // Slide up/down effects
+        effect: function(offset) {
+          $(this).show('drop', {distance: 5, direction: 'down'}, 400);
+        }
+      },
+      hide: {
+        effect: function(offset) {
+          $(this).hide('drop', {distance: 10, direction: 'down'}, 300);
+        }
+      }
+
+    });
+          $().ready(function () {
+        setTimeout(function() { $('.loginlink').qtip('toggle', true); }, 1000);
+        setTimeout(function() { $('.loginlink').qtip('toggle', false); }, 8000);
+      });
+      </script>
+</html>
+<!-- 0 -->

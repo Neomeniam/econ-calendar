@@ -1,0 +1,799 @@
+{
+ "generated_utc": "2026-10-01T12:55:32Z",
+ "window": "2026-10-01 → end of published schedule (2027 where available)",
+ "timezone_note": "time_et = America/New_York 當地時間(ET);TWN_holiday 為 Asia/Taipei 全日;IDX 事件未附時間(公告/生效以各指數商慣例為準)",
+ "sources": [
+  {
+   "class": "CPI",
+   "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
+   "fetched_utc": "2026-10-01T12:55:32Z",
+   "snapshot_file": "bls_cpi_webfetch.md",
+   "status": "OK_via_webfetch",
+   "note": "直接 curl 403(bls_cpi.html=Access Denied 頁);表格經 WebFetch 讀官方頁取得;已發布排程至 2026-11 資料月(2026-12-10 發布);2027 尚未刊出"
+  },
+  {
+   "class": "PPI",
+   "url": "https://www.bls.gov/schedule/news_release/ppi.htm",
+   "fetched_utc": "2026-10-01T12:55:32Z",
+   "snapshot_file": "bls_ppi_webfetch.md",
+   "status": "OK_via_webfetch",
+   "note": "直接 curl 403;已發布排程至 2026-11 資料月(2026-12-15 發布);2027 尚未刊出"
+  },
+  {
+   "class": "NFP",
+   "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
+   "fetched_utc": "2026-10-01T12:55:32Z",
+   "snapshot_file": "bls_empsit_webfetch.md",
+   "status": "OK_via_webfetch",
+   "note": "直接 curl 403;已發布排程至 2026-11 資料月(2026-12-04 發布);2027 尚未刊出"
+  },
+  {
+   "class": "REAL_EARNINGS",
+   "url": "https://www.bls.gov/schedule/news_release/realer.htm",
+   "fetched_utc": "2026-10-01T12:55:32Z",
+   "snapshot_file": "bls_realer_webfetch.md",
+   "status": "OK_via_webfetch",
+   "note": "直接 curl 403;與 CPI 同日發布;排程至 2026-12-10;2027 尚未刊出"
+  },
+  {
+   "class": "PCE/GDP",
+   "url": "https://www.bea.gov/news/schedule/ics/online-calendar-subscription.ics",
+   "fetched_utc": "2026-10-01T12:49:29Z",
+   "snapshot_file": "bea_calendar.ics",
+   "status": "OK",
+   "note": "BEA 官方 ICS(TZ America/New_York);涵蓋至 2026-12-23;2027 排程尚未發布;另存 bea_schedule.html / bea_schedule_full.html"
+  },
+  {
+   "class": "RETAIL_MARTS",
+   "url": "https://www.census.gov/retail/release_schedule.html",
+   "fetched_utc": "2026-10-01T12:50:21Z",
+   "snapshot_file": "census_retail_release_schedule.html",
+   "status": "OK",
+   "note": "Advance Monthly Retail Trade (MARTS) Release Dates for 2025/2026;2026-12 資料月 'To be announced';economic-indicators/calendar.html 為 JS widget 無靜態日期(census_calendar.html 已存)"
+  },
+  {
+   "class": "ISM_MFG",
+   "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/",
+   "fetched_utc": "2026-10-01T12:52:36Z",
+   "snapshot_file": "ism_rob_calendar_wayback.html",
+   "status": "OK_via_wayback",
+   "note": "ismworld.org 直接抓取被 captcha/SSO 擋(ism_rob.html=captcha 頁);改用 Wayback 2026-08-24 快照之官方頁;2026 全年 Mfg PMI 日期已列(首營業日 10:00 ET);2027 尚未刊出"
+  },
+  {
+   "class": "UMICH",
+   "url": "https://data.sca.isr.umich.edu/fetchdoc.php?docid=79628",
+   "fetched_utc": "2026-10-01T12:55:32Z",
+   "snapshot_file": "umich_release_dates_2026.pdf",
+   "status": "OK",
+   "note": "官方 2026 Release Dates PDF;10:00 ET per sca.isr.umich.edu 首頁 'at 10am ET'(umich_sca.html);survey-info 頁=umich_survey_info.html"
+  },
+  {
+   "class": "UMICH",
+   "url": "https://data.sca.isr.umich.edu/fetchdoc.php?docid=81621",
+   "fetched_utc": "2026-10-01T12:55:32Z",
+   "snapshot_file": "umich_release_dates_2027.pdf",
+   "status": "OK",
+   "note": "官方 2027 Release Dates PDF(2027-03-25 Final 為週四,其餘週五)"
+  },
+  {
+   "class": "FOMC",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+   "fetched_utc": "2026-10-01T12:45:35Z",
+   "snapshot_file": "fomc_calendars.html",
+   "status": "OK",
+   "note": "頁面列 2026/2027 會期;未來會議之 minutes 日期頁面未列,本檔以『會議次日+3週 14:00 ET』推導並以 derived:true 標註;聲明 14:00 ET/記者會 14:30 ET 為慣例非頁面逐字"
+  },
+  {
+   "class": "TWN_holiday",
+   "url": "https://www.taifex.com.tw/file/taifex/CHINESE/4/2026Calendar.pdf",
+   "fetched_utc": "2026-10-01T12:47:47Z",
+   "snapshot_file": "taifex_2026Calendar.pdf",
+   "status": "OK",
+   "note": "民國115年期貨集中交易市場行事曆(自 /cht/4/calendar 連出,頁面快照 taifex_calendar_cht.html);週末未列入 events,僅列平日休市;補假規則經人事行政總處115年辦公日曆交叉確認"
+  },
+  {
+   "class": "TWN_holiday_2027",
+   "url": "https://www.taifex.com.tw/file/taifex/CHINESE/4/2027Calendar.pdf",
+   "fetched_utc": "2026-10-01T12:55:32Z",
+   "snapshot_file": "(none)",
+   "status": "FAILED",
+   "note": "民國116年(2027)行事曆尚未發布(probe 302→404);2027 台灣休市日待 TAIFEX 公告後補"
+  },
+  {
+   "class": "IDX_MSCI",
+   "url": "https://app2.msci.com/eqb/pressreleases/archive/ir_dates.csv",
+   "fetched_utc": "2026-10-01T12:51:13Z",
+   "snapshot_file": "msci_ir_dates.csv",
+   "status": "OK",
+   "note": "MSCI 2026-08-12 press release 'Next Eight Index Review Dates'(另存 msci_ir_dates.pdf);MSCI 保留變更權"
+  },
+  {
+   "class": "IDX_FTSE_RUSSELL",
+   "url": "https://www.lseg.com/en/media-centre/press-releases/ftse-russell/2026/ftse-russell-announces-december-2026-russell-us-indexes-reconstitution-schedule",
+   "fetched_utc": "2026-10-01T12:52:07Z",
+   "snapshot_file": "ftse_russell_dec2026_recon.html",
+   "status": "OK",
+   "note": "Russell US Indexes Dec 2026 semi-annual reconstitution 官方時程"
+  },
+  {
+   "class": "IDX_FTSE_GEIS",
+   "url": "https://www.lseg.com/content/dam/ftse-russell/en_us/documents/policy-documents/ftse-faq-document-geis-2026.pdf",
+   "fetched_utc": "2026-10-01T12:52:29Z",
+   "snapshot_file": "ftse_geis_faq_2026.pdf",
+   "status": "OK",
+   "note": "FTSE GEIS 2026 review schedule(July 2026 版);Dec 2026 quarterly review:indicative files 11-13、final files 12-04、effective open-of 12-21(=12-18 第三個週五收盤 rebalance);2027 版 FAQ 404 尚未發布"
+  },
+  {
+   "class": "ISM_MFG_direct",
+   "url": "https://www.ismworld.org/supply-management-news-and-reports/reports/ism-report-on-business/",
+   "fetched_utc": "2026-10-01T12:45:38Z",
+   "snapshot_file": "ism_rob.html",
+   "status": "FAILED",
+   "note": "直接抓取=captcha;WebFetch=302 轉 SSO 登入頁"
+  },
+  {
+   "class": "CENSUS_CAL",
+   "url": "https://www.census.gov/economic-indicators/calendar.html",
+   "fetched_utc": "2026-10-01T12:45:36Z",
+   "snapshot_file": "census_calendar.html",
+   "status": "OK_no_dates",
+   "note": "JS 行事曆 widget,靜態 HTML 無日期;僅存檔備查"
+  }
+ ],
+ "events": [
+  {
+   "class": "ISM_MFG",
+   "date": "2026-10-01",
+   "time_et": "10:00",
+   "label": "ISM 製造業PMI 9月"
+  },
+  {
+   "class": "NFP",
+   "date": "2026-10-02",
+   "time_et": "08:30",
+   "label": "非農就業報告(Employment Situation) 9月"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2026-10-07",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(9/15-16會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "TWN_holiday",
+   "date": "2026-10-09",
+   "time_et": null,
+   "label": "台灣期市休市:國慶日補假(10/10週六)",
+   "all_day": true,
+   "tz": "Asia/Taipei"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2026-10-09",
+   "time_et": "10:00",
+   "label": "密大消費者信心 10月初值"
+  },
+  {
+   "class": "CPI",
+   "date": "2026-10-14",
+   "time_et": "08:30",
+   "label": "CPI 9月"
+  },
+  {
+   "class": "REAL_EARNINGS",
+   "date": "2026-10-14",
+   "time_et": "08:30",
+   "label": "Real Earnings 9月(與CPI同日)"
+  },
+  {
+   "class": "PPI",
+   "date": "2026-10-15",
+   "time_et": "08:30",
+   "label": "PPI 9月"
+  },
+  {
+   "class": "RETAIL_MARTS",
+   "date": "2026-10-15",
+   "time_et": "08:30",
+   "label": "零售銷售(MARTS) 9月"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2026-10-23",
+   "time_et": "10:00",
+   "label": "密大消費者信心 10月終值"
+  },
+  {
+   "class": "TWN_holiday",
+   "date": "2026-10-26",
+   "time_et": null,
+   "label": "台灣期市休市:光復節補假(10/25週日)",
+   "all_day": true,
+   "tz": "Asia/Taipei"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2026-10-28",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(10/27-28會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2026-10-28",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(10/27-28會議)"
+  },
+  {
+   "class": "GDP",
+   "date": "2026-10-29",
+   "time_et": "08:30",
+   "label": "GDP 2026Q3 Advance Estimate"
+  },
+  {
+   "class": "PCE",
+   "date": "2026-10-29",
+   "time_et": "08:30",
+   "label": "Personal Income and Outlays(PCE) 9月"
+  },
+  {
+   "class": "ISM_MFG",
+   "date": "2026-11-02",
+   "time_et": "10:00",
+   "label": "ISM 製造業PMI 10月"
+  },
+  {
+   "class": "NFP",
+   "date": "2026-11-06",
+   "time_et": "08:30",
+   "label": "非農就業報告(Employment Situation) 10月"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2026-11-06",
+   "time_et": "10:00",
+   "label": "密大消費者信心 11月初值"
+  },
+  {
+   "class": "CPI",
+   "date": "2026-11-10",
+   "time_et": "08:30",
+   "label": "CPI 10月"
+  },
+  {
+   "class": "REAL_EARNINGS",
+   "date": "2026-11-10",
+   "time_et": "08:30",
+   "label": "Real Earnings 10月(與CPI同日)"
+  },
+  {
+   "class": "IDX_announce",
+   "date": "2026-11-11",
+   "time_et": null,
+   "label": "MSCI 11月2026 Index Review 結果公布",
+   "index": "MSCI"
+  },
+  {
+   "class": "IDX_announce",
+   "date": "2026-11-13",
+   "time_et": null,
+   "label": "Russell US Indexes 12月reconstitution 初步增刪名單(美股收盤後)",
+   "index": "Russell US"
+  },
+  {
+   "class": "IDX_announce",
+   "date": "2026-11-13",
+   "time_et": null,
+   "label": "FTSE GEIS 12月quarterly review indicative files/technical notices",
+   "index": "FTSE GEIS"
+  },
+  {
+   "class": "PPI",
+   "date": "2026-11-13",
+   "time_et": "08:30",
+   "label": "PPI 10月"
+  },
+  {
+   "class": "RETAIL_MARTS",
+   "date": "2026-11-17",
+   "time_et": "08:30",
+   "label": "零售銷售(MARTS) 10月"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2026-11-18",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(10/27-28會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2026-11-20",
+   "time_et": "10:00",
+   "label": "密大消費者信心 11月終值"
+  },
+  {
+   "class": "GDP",
+   "date": "2026-11-25",
+   "time_et": "08:30",
+   "label": "GDP 2026Q3 Second Estimate"
+  },
+  {
+   "class": "PCE",
+   "date": "2026-11-25",
+   "time_et": "08:30",
+   "label": "Personal Income and Outlays(PCE) 10月"
+  },
+  {
+   "class": "IDX_effective",
+   "date": "2026-12-01",
+   "time_et": null,
+   "label": "MSCI 11月2026 Index Review 生效(前一營業日收盤調整)",
+   "index": "MSCI"
+  },
+  {
+   "class": "ISM_MFG",
+   "date": "2026-12-01",
+   "time_et": "10:00",
+   "label": "ISM 製造業PMI 11月"
+  },
+  {
+   "class": "NFP",
+   "date": "2026-12-04",
+   "time_et": "08:30",
+   "label": "非農就業報告(Employment Situation) 11月"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2026-12-04",
+   "time_et": "10:00",
+   "label": "密大消費者信心 12月初值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2026-12-09",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(12/8-9會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2026-12-09",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(12/8-9會議)"
+  },
+  {
+   "class": "CPI",
+   "date": "2026-12-10",
+   "time_et": "08:30",
+   "label": "CPI 11月"
+  },
+  {
+   "class": "REAL_EARNINGS",
+   "date": "2026-12-10",
+   "time_et": "08:30",
+   "label": "Real Earnings 11月(與CPI同日)"
+  },
+  {
+   "class": "IDX_effective",
+   "date": "2026-12-11",
+   "time_et": null,
+   "label": "Russell US Indexes 12月reconstitution 生效(12/11收盤後,12/14開盤採用)",
+   "index": "Russell US"
+  },
+  {
+   "class": "PPI",
+   "date": "2026-12-15",
+   "time_et": "08:30",
+   "label": "PPI 11月"
+  },
+  {
+   "class": "RETAIL_MARTS",
+   "date": "2026-12-16",
+   "time_et": "08:30",
+   "label": "零售銷售(MARTS) 11月"
+  },
+  {
+   "class": "IDX_effective",
+   "date": "2026-12-18",
+   "time_et": null,
+   "label": "FTSE GEIS 12月quarterly review 生效(第三個週五12/18收盤rebalance;官方effective open-of 12/21)",
+   "index": "FTSE GEIS"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2026-12-18",
+   "time_et": "10:00",
+   "label": "密大消費者信心 12月終值"
+  },
+  {
+   "class": "GDP",
+   "date": "2026-12-23",
+   "time_et": "08:30",
+   "label": "GDP 2026Q3 Third Estimate"
+  },
+  {
+   "class": "PCE",
+   "date": "2026-12-23",
+   "time_et": "08:30",
+   "label": "Personal Income and Outlays(PCE) 11月"
+  },
+  {
+   "class": "TWN_holiday",
+   "date": "2026-12-25",
+   "time_et": null,
+   "label": "台灣期市休市:行憲紀念日",
+   "all_day": true,
+   "tz": "Asia/Taipei"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2026-12-30",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(12/8-9會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-01-08",
+   "time_et": "10:00",
+   "label": "密大消費者信心 1月初值"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-01-22",
+   "time_et": "10:00",
+   "label": "密大消費者信心 1月終值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-01-27",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(1/26-27會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-01-27",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(1/26-27會議)"
+  },
+  {
+   "class": "IDX_announce",
+   "date": "2027-02-09",
+   "time_et": null,
+   "label": "MSCI 2月2027 Index Review 結果公布",
+   "index": "MSCI"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-02-12",
+   "time_et": "10:00",
+   "label": "密大消費者信心 2月初值"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-02-17",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(1/26-27會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-02-26",
+   "time_et": "10:00",
+   "label": "密大消費者信心 2月終值"
+  },
+  {
+   "class": "IDX_effective",
+   "date": "2027-03-01",
+   "time_et": null,
+   "label": "MSCI 2月2027 Index Review 生效(前一營業日收盤調整)",
+   "index": "MSCI"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-03-12",
+   "time_et": "10:00",
+   "label": "密大消費者信心 3月初值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-03-17",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(3/16-17會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-03-17",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(3/16-17會議)"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-03-25",
+   "time_et": "10:00",
+   "label": "密大消費者信心 3月終值"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-04-07",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(3/16-17會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-04-09",
+   "time_et": "10:00",
+   "label": "密大消費者信心 4月初值"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-04-23",
+   "time_et": "10:00",
+   "label": "密大消費者信心 4月終值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-04-28",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(4/27-28會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-04-28",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(4/27-28會議)"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-05-07",
+   "time_et": "10:00",
+   "label": "密大消費者信心 5月初值"
+  },
+  {
+   "class": "IDX_announce",
+   "date": "2027-05-10",
+   "time_et": null,
+   "label": "MSCI 5月2027 Index Review 結果公布",
+   "index": "MSCI"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-05-19",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(4/27-28會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-05-21",
+   "time_et": "10:00",
+   "label": "密大消費者信心 5月終值"
+  },
+  {
+   "class": "IDX_effective",
+   "date": "2027-05-28",
+   "time_et": null,
+   "label": "MSCI 5月2027 Index Review 生效(前一營業日收盤調整)",
+   "index": "MSCI"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-06-09",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(6/8-9會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-06-09",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(6/8-9會議)"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-06-11",
+   "time_et": "10:00",
+   "label": "密大消費者信心 6月初值"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-06-25",
+   "time_et": "10:00",
+   "label": "密大消費者信心 6月終值"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-06-30",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(6/8-9會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-07-16",
+   "time_et": "10:00",
+   "label": "密大消費者信心 7月初值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-07-28",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(7/27-28會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-07-28",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(7/27-28會議)"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-07-30",
+   "time_et": "10:00",
+   "label": "密大消費者信心 7月終值"
+  },
+  {
+   "class": "IDX_announce",
+   "date": "2027-08-12",
+   "time_et": null,
+   "label": "MSCI 8月2027 Index Review 結果公布",
+   "index": "MSCI"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-08-13",
+   "time_et": "10:00",
+   "label": "密大消費者信心 8月初值"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-08-18",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(7/27-28會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-08-27",
+   "time_et": "10:00",
+   "label": "密大消費者信心 8月終值"
+  },
+  {
+   "class": "IDX_effective",
+   "date": "2027-09-01",
+   "time_et": null,
+   "label": "MSCI 8月2027 Index Review 生效(前一營業日收盤調整)",
+   "index": "MSCI"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-09-10",
+   "time_et": "10:00",
+   "label": "密大消費者信心 9月初值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-09-15",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(9/14-15會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-09-15",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(9/14-15會議)"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-09-24",
+   "time_et": "10:00",
+   "label": "密大消費者信心 9月終值"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-10-06",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(9/14-15會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-10-08",
+   "time_et": "10:00",
+   "label": "密大消費者信心 10月初值"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-10-22",
+   "time_et": "10:00",
+   "label": "密大消費者信心 10月終值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-10-27",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(10/26-27會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-10-27",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(10/26-27會議)"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-11-05",
+   "time_et": "10:00",
+   "label": "密大消費者信心 11月初值"
+  },
+  {
+   "class": "IDX_announce",
+   "date": "2027-11-11",
+   "time_et": null,
+   "label": "MSCI 11月2027 Index Review 結果公布",
+   "index": "MSCI"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-11-17",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(10/26-27會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-11-19",
+   "time_et": "10:00",
+   "label": "密大消費者信心 11月終值"
+  },
+  {
+   "class": "IDX_effective",
+   "date": "2027-12-01",
+   "time_et": null,
+   "label": "MSCI 11月2027 Index Review 生效(前一營業日收盤調整)",
+   "index": "MSCI"
+  },
+  {
+   "class": "UMICH_PRELIM",
+   "date": "2027-12-03",
+   "time_et": "10:00",
+   "label": "密大消費者信心 12月初值"
+  },
+  {
+   "class": "FOMC_decision",
+   "date": "2027-12-08",
+   "time_et": "14:00",
+   "label": "FOMC 利率決策聲明(12/7-8會議)"
+  },
+  {
+   "class": "FOMC_presser",
+   "date": "2027-12-08",
+   "time_et": "14:30",
+   "label": "FOMC 記者會(12/7-8會議)"
+  },
+  {
+   "class": "UMICH_FINAL",
+   "date": "2027-12-17",
+   "time_et": "10:00",
+   "label": "密大消費者信心 12月終值"
+  },
+  {
+   "class": "FOMC_minutes",
+   "date": "2027-12-29",
+   "time_et": "14:00",
+   "label": "FOMC 會議紀要(12/7-8會議)",
+   "derived": true,
+   "note": "頁面尚未列出;依『會後3週』推導"
+  }
+ ]
+}
