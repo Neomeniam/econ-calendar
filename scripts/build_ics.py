@@ -59,6 +59,25 @@ def load_events():
             evs.append(dict(cls=cls, dtstart=u, summary=f"【{flag}】{lbl if name in lbl else name+' '+lbl} {tpe_s}".strip(),
                             desc=[f"共識快照:T−24h {(u-dt.timedelta(hours=24)):%m-%d %H:%M}Z / T−2h {(u-dt.timedelta(hours=2)):%m-%d %H:%M}Z(均再提前 2h 排程)",
                                   f"事後檔案:{path}", prof.format(d=f"{local:%-m/%-d}")]))
+    # tier2(第 58 任裁示 2026-10-06):關注、不入研究樣本;只進行事曆與週一摘要,
+    # 不進共識快照排程(desc 不帶共識行)、不切片。資料 = data/tier2_data.json(週重建保留)。
+    p2 = BASE / "data/tier2_data.json"
+    if p2.exists():
+        j2 = json.load(open(p2))
+        for e in j2.get("events", []):
+            note = "第二層:關注、不入研究樣本(裁示 2026-10-06);不入共識快照排程、不切片"
+            srcline = f"來源:{e.get('source','')}(狀態:{e.get('status','')})"
+            if e.get("allday") or (not e.get("time_et") and not e.get("time_utc")):
+                evs.append(dict(cls="T2", date=e["date"], allday=True,
+                                summary=f"【二】{e['label']}(時刻未抓到)" if e.get("allday") else f"【二】{e['label']}",
+                                desc=[note, srcline]))
+            else:
+                if e.get("time_utc"):
+                    u = dt.datetime.fromisoformat(e["date"] + "T" + e["time_utc"]).replace(tzinfo=UTC)
+                else:
+                    u = dt.datetime.fromisoformat(e["date"] + "T" + e["time_et"]).replace(tzinfo=ET).astimezone(UTC)
+                tpe_s = u.astimezone(TPE).strftime("%H:%M")
+                evs.append(dict(cls="T2", dtstart=u, summary=f"【二】{e['label']} {tpe_s}", desc=[note, srcline]))
     # rules: quad witching + TAIFEX settlement
     y, m = TODAY.year, TODAY.month
     for yy in (2026, 2027):
@@ -78,9 +97,14 @@ def vevent(e, now):
         d = dt.date.fromisoformat(e["date"]); uidt = e["date"].replace("-", "")
         out += [f"DTSTART;VALUE=DATE:{uidt}", f"DTEND;VALUE=DATE:{(d+dt.timedelta(days=1)):%Y%m%d}"]
         uid = f"{e['cls']}-{uidt}"
+        if e["cls"] in ("T2", "IDX_announce", "IDX_effective"):
+            # 同日多件同類(v1 缺陷:兩件 IDX_announce 2026-11-13 撞 UID 致訂閱端丟一件)→ label hash 保唯一
+            uid += "-" + hashlib.sha256(e["summary"].encode()).hexdigest()[:8]
     else:
         out += [f"DTSTART:{e['dtstart']:%Y%m%dT%H%M%SZ}"]
         uid = f"{e['cls']}-{e['dtstart']:%Y%m%dT%H%M%SZ}"
+        if e["cls"] == "T2":   # 同時刻多件 T2(如 10-27 新屋銷售與 CB 信心同 14:00Z)須保 UID 唯一
+            uid += "-" + hashlib.sha256(e["summary"].encode()).hexdigest()[:8]
     out += [f"UID:{uid}@econ-calendar", f"DTSTAMP:{now:%Y%m%dT%H%M%SZ}", f"SUMMARY:{esc(e['summary'])}"]
     if e.get("desc"): out.append("DESCRIPTION:" + esc("\n".join(e["desc"])))
     out.append("END:VEVENT")

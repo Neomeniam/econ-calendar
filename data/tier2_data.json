@@ -1,0 +1,242 @@
+{
+ "generated_utc": "2026-10-05T21:18:14+00:00",
+ "window": "2026-10-06..2026-11-30",
+ "note": "第二層:關注、不入研究樣本(第 58 任裁示 2026-10-06);只進行事曆與週一本週大事,不進共識快照排程、不切片;日期時刻 = 發布機構官方頁逐字(佐證 = intraday-recorder exports/calendar_tier2_20261006/)",
+ "events": [
+  {
+   "label": "ISM 服務業 PMI(10月,source=press-release)",
+   "date": "2026-11-04",
+   "status": "OK(官方通稿末段逐字;裁示 2026-10-07 件2)",
+   "source": "https://www.prnewswire.com/news-releases/services-pmi-at-54-9-september-2026-ism-services-pmi-report-302898421.html",
+   "time_et": "10:00"
+  },
+  {
+   "label": "ADP 就業(月度 NER)",
+   "date": "2026-11-04",
+   "status": "日期OK;時刻未抓到",
+   "source": "https://adpemploymentreport.com/",
+   "allday": true
+  },
+  {
+   "label": "JOLTS 職缺(9月)",
+   "date": "2026-11-03",
+   "status": "OK",
+   "source": "https://www.bls.gov/schedule/news_release/jolts.htm",
+   "time_et": "10:00"
+  },
+  {
+   "label": "S&P Global 美國 PMI 初值",
+   "date": "2026-10-23",
+   "status": "OK",
+   "source": "https://www.pmi.spglobal.com/Public/Release/ReleaseDates",
+   "time_utc": "13:45"
+  },
+  {
+   "label": "耐久財訂單(Advance,9月)",
+   "date": "2026-10-27",
+   "status": "OK",
+   "source": "https://www.census.gov/manufacturing/m3/release_schedule.html",
+   "time_et": "08:30"
+  },
+  {
+   "label": "耐久財訂單(Advance,10月)",
+   "date": "2026-11-25",
+   "status": "OK",
+   "source": "https://www.census.gov/manufacturing/m3/release_schedule.html",
+   "time_et": "08:30"
+  },
+  {
+   "label": "新屋銷售(9月)",
+   "date": "2026-10-27",
+   "status": "OK",
+   "source": "https://www.census.gov/construction/nrs/pdf/newressales.pdf",
+   "time_et": "10:00"
+  },
+  {
+   "label": "成屋銷售(9月,NAR)",
+   "date": "2026-10-13",
+   "status": "OK",
+   "source": "https://www.nar.realtor/press-releases/nar-statistical-news-release-schedule",
+   "time_et": "10:00"
+  },
+  {
+   "label": "成屋銷售(10月,NAR)",
+   "date": "2026-11-12",
+   "status": "OK",
+   "source": "https://www.nar.realtor/press-releases/nar-statistical-news-release-schedule",
+   "time_et": "10:00"
+  },
+  {
+   "label": "消費者信心(世界大型企業聯合會,10月)",
+   "date": "2026-10-27",
+   "status": "OK(官方規則推導)",
+   "source": "https://www.conference-board.org/topics/consumer-confidence",
+   "time_et": "10:00"
+  },
+  {
+   "label": "消費者信心(世界大型企業聯合會,11月)",
+   "date": "2026-11-24",
+   "status": "OK(官方規則推導)",
+   "source": "https://www.conference-board.org/topics/consumer-confidence",
+   "time_et": "10:00"
+  },
+  {
+   "label": "初領失業金(週報)",
+   "date": "2026-10-08",
+   "status": "OK(官方週期規則推導)",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  },
+  {
+   "label": "初領失業金(週報)",
+   "date": "2026-10-15",
+   "status": "OK(官方週期規則推導)",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  },
+  {
+   "label": "初領失業金(週報)",
+   "date": "2026-10-22",
+   "status": "OK(官方週期規則推導)",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  },
+  {
+   "label": "初領失業金(週報)",
+   "date": "2026-10-29",
+   "status": "OK(官方週期規則推導)",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  },
+  {
+   "label": "初領失業金(週報)",
+   "date": "2026-11-05",
+   "status": "OK(官方週期規則推導)",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  },
+  {
+   "label": "初領失業金(週報)",
+   "date": "2026-11-12",
+   "status": "OK(官方週期規則推導)",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  },
+  {
+   "label": "初領失業金(週報)",
+   "date": "2026-11-19",
+   "status": "OK(官方週期規則推導)",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  },
+  {
+   "label": "初領失業金(週報)(感恩節週,官方慣例或改期;本場日期未經官方逐場證實)",
+   "date": "2026-11-26",
+   "status": "OK(官方週期規則推導);改期風險",
+   "source": "https://r.jina.ai/https://www.dol.gov/ui/data.pdf",
+   "time_et": "08:30"
+  }
+ ],
+ "earnings": {
+  "NVDA": {
+   "name": "NVIDIA",
+   "ir_url": "https://investor.nvidia.com/events-and-presentations/default.aspx",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_NVDA_20261005.html",
+   "snapshot_sha256": "9bace003002b4c3c6cc0b29435bf0c3fa4d58d5711e7243779d0fe530cb44624",
+   "status": "未公告"
+  },
+  "AAPL": {
+   "name": "Apple",
+   "ir_url": "https://www.apple.com/investor/earnings-call/",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_AAPL_20261005.html",
+   "snapshot_sha256": "5cb8cc6f6c1db184e10355bc888d121c2f2aa1937f13fbc8696d12fb11b7d598",
+   "status": "未公告"
+  },
+  "MSFT": {
+   "name": "Microsoft",
+   "ir_url": "https://www.microsoft.com/en-us/investor/events/events-upcoming",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_MSFT_20261005.html",
+   "snapshot_sha256": "b682e4a6051cb29f9c0d1d0683910b27d621f03e5b20bccbc42e045953784455",
+   "status": "未公告"
+  },
+  "MU": {
+   "name": "美光 Micron",
+   "ir_url": "https://investors.micron.com/events-and-presentations",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_MU_20261005.html",
+   "snapshot_sha256": "924d7c5c02dd95760b0a62a0c36791eb78221ac75539cee6b545549498b241ee",
+   "status": "未公告"
+  },
+  "AMD": {
+   "name": "AMD",
+   "ir_url": "https://ir.amd.com/news-events/financial-calendar",
+   "route": "direct",
+   "http": 404,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_AMD_20261005.html",
+   "snapshot_sha256": "fddfec63b46ae3105b30ff16a14380634c197aa0887a65a3a0fd95bc51487760",
+   "status": "未公告"
+  },
+  "AMZN": {
+   "name": "Amazon",
+   "ir_url": "https://ir.aboutamazon.com/events/default.aspx",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_AMZN_20261005.html",
+   "snapshot_sha256": "0c745aec654a549f356b296ecfc7b12d073bf310be86d7ea195db4546592243d",
+   "status": "未公告"
+  },
+  "META": {
+   "name": "Meta",
+   "ir_url": "https://investor.atmeta.com/investor-events/default.aspx",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_META_20261005.html",
+   "snapshot_sha256": "1d2b8c3e7e650b5036df3d9978c2d90dcea34417790e42f97e27e15ea5bc7588",
+   "status": "未公告"
+  },
+  "GOOGL": {
+   "name": "Alphabet",
+   "ir_url": "https://abc.xyz/investor/",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_GOOGL_20261005.html",
+   "snapshot_sha256": "ce8243ba7aafddb6c0ef5401926967ce16956a6d6b04afd59216d442797be076",
+   "status": "未公告"
+  },
+  "TSLA": {
+   "name": "Tesla",
+   "ir_url": "https://ir.tesla.com/",
+   "route": "rendered",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_TSLA_20261005.txt",
+   "snapshot_sha256": "181f56a1058fc21eb44e74f4aa4793d5eced3f62002e6d892f6d2daf97738a49",
+   "status": "未抓到"
+  },
+  "SPACEX": {
+   "name": "SpaceX",
+   "ir_url": "https://www.spacex.com/investors",
+   "route": "direct",
+   "http": 200,
+   "checked_utc": "2026-10-05T21:18:14+00:00",
+   "snapshot": "tier2_SPACEX_20261005.html",
+   "snapshot_sha256": "e2c020c4a1fb0bf92fe68a31aba4b04bf257829f2d794d4bbc92942a11d7017a",
+   "status": "未抓到"
+  }
+ }
+}

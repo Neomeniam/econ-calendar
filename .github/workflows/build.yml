@@ -14,6 +14,9 @@ jobs:
       - name: Refetch schedules (keep-old-on-failure, logged)
         continue-on-error: true
         run: python3 scripts/fetch_schedules.py
+      - name: Tier2 earnings weekly recheck (裁示 2026-10-07 件4; keep-old-on-failure)
+        continue-on-error: true
+        run: python3 scripts/fetch_tier2_earnings.py
       - run: python3 scripts/build_ics.py
       - run: |
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

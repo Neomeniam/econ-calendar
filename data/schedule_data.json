@@ -57,7 +57,7 @@
    "fetched_utc": "2026-10-01T12:52:36Z",
    "snapshot_file": "ism_rob_calendar_wayback.html",
    "status": "OK_via_wayback",
-   "note": "ismworld.org 直接抓取被 captcha/SSO 擋(ism_rob.html=captcha 頁);改用 Wayback 2026-08-24 快照之官方頁;2026 全年 Mfg PMI 日期已列(首營業日 10:00 ET);2027 尚未刊出"
+   "note": "ismworld.org 直接抓取被 captcha/SSO 擋(ism_rob.html=captcha 頁);改用 Wayback 2026-08-24 快照之官方頁;2026 全年 Mfg PMI 日期已列(首營業日 10:00 ET);2027 尚未刊出;2026-10-07 裁示件2:11-02 10:00 ET 與官方通稿末段逐字交叉驗證相符(source=press-release,快照 sha e35293db…327fc 於 intraday-recorder-reportline reports/daily/sources/,跨 clone 唯讀)"
   },
   {
    "class": "UMICH",

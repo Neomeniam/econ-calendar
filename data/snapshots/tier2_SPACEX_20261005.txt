@@ -1,0 +1,38 @@
+Title: SpaceX
+
+URL Source: https://www.spacex.com/investors
+
+Published Time: Mon, 05 Oct 2026 20:07:44 GMT
+
+Markdown Content:
+## Making life multiplanetary
+
+SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not.
+
+![Image 1](https://sxcontent9668.azureedge.us/cms-assets/assets/Revolutionizing_Space_Tech_Desktop_ec67ad03c2.jpg)
+
+## Revolutionizing space technology
+
+SpaceX’s Starship spacecraft and Super Heavy rocket is a fully reusable transportation system designed to carry both crew and cargo to Earth orbit, the Moon, Mars, and beyond.
+
+## World’s leading launch service provider
+
+SpaceX leads the world in launches with its reliable, reusable rockets and is developing the fully and rapidly reusable rockets necessary to transform humanity’s ability to access space into something as routine as air travel.
+
+![Image 2](https://sxcontent9668.azureedge.us/cms-assets/assets/Advancing_Human_Spaceflight_Desktop_61c8ba1c67.jpg)
+
+## Advancing human spaceflight
+
+Since returning human spaceflight capabilities to the United States in 2020, SpaceX is helping build a new era where not just hundreds of people, but thousands and ultimately millions will be able to explore space.
+
+![Image 3](https://sxcontent9668.azureedge.us/cms-assets/assets/Flight_14_Deploy_092826_2f8726202b.png)
+
+## Delivering high-speed internet from space
+
+Starlink is the world’s most advanced satellite constellation in low-Earth orbit, delivering reliable broadband internet capable of supporting streaming, online gaming, video calls, and more.
+
+![Image 4](https://sxcontent9668.azureedge.us/cms-assets/assets/home_hero_ba20d17dfc.webp)
+
+## DEVELOPING ORBITAL AI COMPUTE
+
+SpaceX is the only vertical integrated company capable of developing a truly scalable solution for the future of AI.
