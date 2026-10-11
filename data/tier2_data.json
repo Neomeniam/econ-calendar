@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-10-05T21:18:14+00:00",
+ "generated_utc": "2026-10-11T03:27:39+00:00",
  "window": "2026-10-06..2026-11-30",
  "note": "第二層:關注、不入研究樣本(第 58 任裁示 2026-10-06);只進行事曆與週一本週大事,不進共識快照排程、不切片;日期時刻 = 發布機構官方頁逐字(佐證 = intraday-recorder exports/calendar_tier2_20261006/)",
  "events": [
@@ -143,9 +143,9 @@
    "ir_url": "https://investor.nvidia.com/events-and-presentations/default.aspx",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_NVDA_20261005.html",
-   "snapshot_sha256": "9bace003002b4c3c6cc0b29435bf0c3fa4d58d5711e7243779d0fe530cb44624",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_NVDA_20261011.html",
+   "snapshot_sha256": "98e4b3318407f68c9a86d9bbddd33f9fc3c7432767aee8433cce3a4a80304191",
    "status": "未公告"
   },
   "AAPL": {
@@ -153,8 +153,8 @@
    "ir_url": "https://www.apple.com/investor/earnings-call/",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_AAPL_20261005.html",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_AAPL_20261011.html",
    "snapshot_sha256": "5cb8cc6f6c1db184e10355bc888d121c2f2aa1937f13fbc8696d12fb11b7d598",
    "status": "未公告"
   },
@@ -163,9 +163,9 @@
    "ir_url": "https://www.microsoft.com/en-us/investor/events/events-upcoming",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_MSFT_20261005.html",
-   "snapshot_sha256": "b682e4a6051cb29f9c0d1d0683910b27d621f03e5b20bccbc42e045953784455",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_MSFT_20261011.html",
+   "snapshot_sha256": "a89724de80d5a6bfca616fdb160110ae9d26568729c0269bfae2e3823c567829",
    "status": "未公告"
   },
   "MU": {
@@ -173,9 +173,9 @@
    "ir_url": "https://investors.micron.com/events-and-presentations",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_MU_20261005.html",
-   "snapshot_sha256": "924d7c5c02dd95760b0a62a0c36791eb78221ac75539cee6b545549498b241ee",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_MU_20261011.html",
+   "snapshot_sha256": "452ecceedb2c29e60d9c5bdfe10d1d12e6b4800c05052daef38f45f909a059ec",
    "status": "未公告"
   },
   "AMD": {
@@ -183,9 +183,9 @@
    "ir_url": "https://ir.amd.com/news-events/financial-calendar",
    "route": "direct",
    "http": 404,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_AMD_20261005.html",
-   "snapshot_sha256": "fddfec63b46ae3105b30ff16a14380634c197aa0887a65a3a0fd95bc51487760",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_AMD_20261011.html",
+   "snapshot_sha256": "019137216a2e05b504a0992bbf46e754b2c7b0adb9c08694636eef7a7cb04092",
    "status": "未公告"
   },
   "AMZN": {
@@ -193,9 +193,9 @@
    "ir_url": "https://ir.aboutamazon.com/events/default.aspx",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_AMZN_20261005.html",
-   "snapshot_sha256": "0c745aec654a549f356b296ecfc7b12d073bf310be86d7ea195db4546592243d",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_AMZN_20261011.html",
+   "snapshot_sha256": "1198b621fd1c4337943fe82c2e0e1d19079f2ff9cb45f21ba7524eade8cf46db",
    "status": "未公告"
   },
   "META": {
@@ -203,9 +203,9 @@
    "ir_url": "https://investor.atmeta.com/investor-events/default.aspx",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_META_20261005.html",
-   "snapshot_sha256": "1d2b8c3e7e650b5036df3d9978c2d90dcea34417790e42f97e27e15ea5bc7588",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_META_20261011.html",
+   "snapshot_sha256": "97020f8f35d7363bf7c4df1b3403dcdde73475035a046930a3189e209748a714",
    "status": "未公告"
   },
   "GOOGL": {
@@ -213,19 +213,19 @@
    "ir_url": "https://abc.xyz/investor/",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_GOOGL_20261005.html",
-   "snapshot_sha256": "ce8243ba7aafddb6c0ef5401926967ce16956a6d6b04afd59216d442797be076",
-   "status": "未公告"
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_GOOGL_20261011.html",
+   "snapshot_sha256": "f73377529ef3b07c428ad3b1230a1ae6ff7fd57e173c82327c0c0c2269f66ee4",
+   "status": "未抓到"
   },
   "TSLA": {
    "name": "Tesla",
    "ir_url": "https://ir.tesla.com/",
-   "route": "rendered",
-   "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_TSLA_20261005.txt",
-   "snapshot_sha256": "181f56a1058fc21eb44e74f4aa4793d5eced3f62002e6d892f6d2daf97738a49",
+   "route": "direct",
+   "http": 403,
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_TSLA_20261011.html",
+   "snapshot_sha256": "d24089a912d460d6244587625c9a863dfe513f89ba8e94cf899036cf0bd3cabe",
    "status": "未抓到"
   },
   "SPACEX": {
@@ -233,9 +233,9 @@
    "ir_url": "https://www.spacex.com/investors",
    "route": "direct",
    "http": 200,
-   "checked_utc": "2026-10-05T21:18:14+00:00",
-   "snapshot": "tier2_SPACEX_20261005.html",
-   "snapshot_sha256": "e2c020c4a1fb0bf92fe68a31aba4b04bf257829f2d794d4bbc92942a11d7017a",
+   "checked_utc": "2026-10-11T03:27:39+00:00",
+   "snapshot": "tier2_SPACEX_20261011.html",
+   "snapshot_sha256": "9b1c9849fe1c6487a50601e36f0bc7583b55fbff77bc76fb0076f19a927bde2f",
    "status": "未抓到"
   }
  }
