@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """第二層財報日每週重試(第 58 任裁示 2026-10-07 件4):QQQ 前十(as of 2026-10-03,Invesco 官方頁)
 + 美光(已在前十)之 IR 頁,每週重建時重試「未抓到」、複查「未公告」;有新公告即入 ics。
+2026-11-14(第 61 任主對話 11/09 11:55 卡七 (c)〔卡 S〕;11/14 13:30 卡 CI 三、20:10 卡 CM 三):IR 頁請求暫停,條款核完前不恢復
+(PAUSED_IR = True:不發任何請求、tier2_data.json 不動〔kept old〕、只寫 build_log_tier2.txt 一行);r.jina.ai 渲染退路移除。
 
-直抓(<6KB 或非 200 → r.jina.ai 渲染);僅接受「今日之後 180 天內」且與財報關鍵詞共現之日期;
+直抓(r.jina.ai 渲染退路已移除;直抓無獲照實記);僅接受「今日之後 180 天內」且與財報關鍵詞共現之日期;
 盤前/盤後由通稿時刻推:≤09:30 ET = 盤前、≥16:00 ET = 盤後、其餘照錄時刻。逐字 verbatim 入 JSON。
 Keep-old-on-failure;逐家記 data/build_log_tier2.txt;快照(解析用之文本)落 data/snapshots/。"""
 import datetime as dt, hashlib, json, re, urllib.error, urllib.request
@@ -12,7 +14,7 @@ BASE = Path(__file__).resolve().parent.parent
 SNAP = BASE / "data/snapshots"; SNAP.mkdir(parents=True, exist_ok=True)
 ET = ZoneInfo("America/New_York")
 UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128.0 Safari/537.36", "Accept-Encoding": "identity"}
-UA_J = {"User-Agent": "curl/8.6.0", "Accept-Encoding": "identity"}
+PAUSED_IR = True   # 卡 S、卡 CM 三:IR 頁請求暫停,條款核完前不恢復(改 False 須主對話裁)
 COMPANIES = [  # (ticker, 顯示名, IR events 頁;權重 = Invesco 官方頁 2026-10-03)
  ("NVDA", "NVIDIA", "https://investor.nvidia.com/events-and-presentations/default.aspx"),
  ("AAPL", "Apple", "https://www.apple.com/investor/earnings-call/"),
@@ -60,6 +62,11 @@ def main():
     j = json.load(p.open())
     earn = j.setdefault("earnings", {})
     log = [f"{now:%Y-%m-%dT%H:%MZ} tier2 earnings weekly recheck(裁示 2026-10-07 件4)"]
+    if PAUSED_IR:
+        log.append("IR 頁請求暫停(卡 S;2026-11-14 卡 CM 三:條款核完前不恢復)— no request, kept old")
+        (BASE / "data/build_log_tier2.txt").write_text("\n".join(log) + "\n")
+        print("\n".join(log))
+        return
     def parse(raw):
         plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", raw.decode("utf-8", "replace")))
         for m in DATE.finditer(plain):
@@ -74,16 +81,11 @@ def main():
         return None
 
     for tk, name, url in COMPANIES:
-        # direct 先;direct 無獲(多為 events 藏 JS 之殼頁)→ 必再渲染重解;兩路皆無才分類
+        # direct 只一路(r.jina.ai 渲染退路已移除;無獲照實分類)
         st1, raw1 = fetch(url, UA)
         found = parse(raw1) if raw1 else None
         route, st, raw = "direct", st1, raw1
         st2 = None; raw2 = b""
-        if not found:
-            st2, raw2 = fetch("https://r.jina.ai/" + url, UA_J)
-            f2 = parse(raw2) if raw2 else None
-            if f2: found, route, st, raw = f2, "rendered", st2, raw2
-            elif len(raw2) > len(raw1): route, st, raw = "rendered", st2, raw2
         if not raw:
             log.append(f"{tk}: FETCH_FAIL(d={st1}, r={st2}) — kept old"); continue
         fn = SNAP / f"tier2_{tk}_{now:%Y%m%d}.{'txt' if route == 'rendered' else 'html'}"

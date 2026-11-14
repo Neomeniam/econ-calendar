@@ -1,20 +1,28 @@
 #!/usr/bin/env python3
 """Weekly refetch of official schedule pages (snapshots) + re-parse where a parser exists.
-Keep-old-on-failure, loudly logged to data/build_log.txt (never silent). Public data only."""
-import json, re, datetime as dt, hashlib, urllib.request
+Keep-old-on-failure, loudly logged to data/build_log.txt (never silent). Public data only.
+2026-11-14(第 61 任主對話 11/09 11:55 卡七 (c)〔卡 S〕;11/14 13:30 卡 CI 三、20:10 卡 CM 三):r.jina.ai 轉抓退路移除(被擋照實記失敗、
+不換路);MSCI、LSEG、ISM 頁之請求暫停,條款核完前不恢復(PAUSED;不發請求、照記 kept old)。"""
+import json, re, datetime as dt, hashlib, urllib.parse, urllib.request
 from pathlib import Path
 BASE = Path(__file__).resolve().parent.parent
 SNAP = BASE / "data/snapshots"; SNAP.mkdir(parents=True, exist_ok=True)
 UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128.0 Safari/537.36"}
+PAUSED = ("msci.com", "lseg.com", "ismworld.org")   # 卡 S、卡 CM 三:MSCI、LSEG、ISM 暫停,條款核完前不恢復
 LOG = []
+def paused(url):
+    host = (urllib.parse.urlsplit(url).hostname or "").lower()
+    return any(host == d or host.endswith("." + d) for d in PAUSED)
 def get(url):
-    for u, h in [(url, UA), ("https://r.jina.ai/" + url, {"User-Agent": "curl/8.6.0"})]:
-        try:
-            with urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=60) as r:
-                b = r.read()
-                if len(b) > 500: return b, ("direct" if u == url else "via r.jina.ai")
-        except Exception as e:
-            LOG.append(f"fetch fail {u}: {type(e).__name__}: {str(e)[:80]}")
+    if paused(url):
+        LOG.append(f"paused {url}(卡 S;條款核完前不恢復)— no request"); return None, None
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+            b = r.read()
+            if len(b) > 500: return b, "direct"
+            LOG.append(f"fetch thin {url}: {len(b)}B")
+    except Exception as e:
+        LOG.append(f"fetch fail {url}: {type(e).__name__}: {str(e)[:80]}")
     return None, None
 MON = {m: i + 1 for i, m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"])}
 def parse_bls(text):
@@ -35,7 +43,7 @@ def main():
     for s in j.get("sources", []):
         b, how = get(s["url"])
         if not b:
-            s["last_refetch"] = f"{now:%Y-%m-%dT%H:%MZ} FAILED (kept old events)"; continue
+            s["last_refetch"] = f"{now:%Y-%m-%dT%H:%MZ} {'PAUSED' if paused(s['url']) else 'FAILED'} (kept old events)"; continue
         fn = SNAP / f"{s['class']}_{now:%Y%m%d}.html"; fn.write_bytes(b)
         s.update(last_refetch=f"{now:%Y-%m-%dT%H:%MZ} OK ({how})", snapshot_file=fn.name, snapshot_sha256=hashlib.sha256(b).hexdigest())
         fn_parse = PARSERS.get(s["class"])
